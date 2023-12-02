@@ -29,17 +29,27 @@ namespace Redactor.RoleOfUsers
                 ArticleListLB.Items.Add(item);
             }
 
+            HeaderTB.Enabled = false;
+            UnderHeaderTB.Enabled = false;
         }
 
+        // Добавить новую статью
         private void AddNewArticleBTN_Click(object sender, EventArgs e)
         {
             string userPath = Directory.GetCurrentDirectory() + "\\" + CurrentUser.Username;
 
             string articleTitle = ArticleNameTB.Text;
 
+            string articleHeader = HeaderTB.Text;
+
+            string articleSubHeader = UnderHeaderTB.Text;
+
             string[] wholeArticle = WholeArticleTB.Lines;
 
             StreamWriter writer = new StreamWriter(userPath + "\\" + articleTitle + ".txt");
+
+            writer.WriteLine(articleHeader);
+            writer.WriteLine(articleSubHeader);
             foreach(string item in wholeArticle)
             {
                 writer.WriteLine(item);
@@ -48,6 +58,7 @@ namespace Redactor.RoleOfUsers
             ArticleNameTB.Clear();
         }
 
+        // Получение списка статей конкретного автора
         private List<string> GetArticles()
         {
             string userPath = Directory.GetCurrentDirectory() + "\\" + CurrentUser.Username;
@@ -62,6 +73,7 @@ namespace Redactor.RoleOfUsers
             return articlesList;
         }
 
+        // Добавление нового абзаца в статью
         private void AddParagraphBTN_Click(object sender, EventArgs e)
         {
             if (ParagraphTB.Text != string.Empty)
@@ -72,6 +84,23 @@ namespace Redactor.RoleOfUsers
 
                 ParagraphTB.Text = string.Empty;
             }
+        }
+
+        private void ArticleListLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ArticleNameTB.Text = ArticleListLB.SelectedItem.ToString();
+
+            string articlePath = Directory.GetCurrentDirectory() + "\\" + CurrentUser.Username + "\\" + ArticleNameTB.Text + ".txt";
+
+            StreamReader reader = new StreamReader(articlePath);
+
+            string line = reader.ReadToEnd();
+
+            string[] content = line.Split('\n');
+
+            HeaderTB.Text = content[0];
+
+            UnderHeaderTB.Text = content[1];
         }
     }
 }

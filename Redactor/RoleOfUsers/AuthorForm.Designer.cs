@@ -89,6 +89,7 @@ namespace Redactor.RoleOfUsers
             this.ArticleListLB.Name = "ArticleListLB";
             this.ArticleListLB.Size = new System.Drawing.Size(130, 303);
             this.ArticleListLB.TabIndex = 4;
+            this.ArticleListLB.SelectedIndexChanged += new System.EventHandler(this.ArticleListLB_SelectedIndexChanged);
             // 
             // AddHeaderBTN
             // 

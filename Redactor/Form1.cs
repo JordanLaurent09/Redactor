@@ -17,18 +17,27 @@ namespace Redactor
             InitializeComponent();
         }
 
+
+        // Аутентификация пользователя
         private void logBTN_Click(object sender, EventArgs e)
         {
             UserAutentification userAutentification = new UserAutentification();
             userAutentification.Autentificate(userLoginTB.Text);
-            Hide();
+            //Hide();
         }
 
+        // Регистрация пользователя
         private void regBTN_Click(object sender, EventArgs e)
         {
             Hide();
             RegistrationForm registrationForm = new RegistrationForm();
             registrationForm.Show();
+        }
+
+        // Закрытие потока программы после ее закрытия
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
