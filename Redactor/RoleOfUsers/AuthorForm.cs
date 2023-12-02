@@ -65,6 +65,15 @@ namespace Redactor.RoleOfUsers
             }
             writer.Close();
             ArticleNameTB.Clear();
+            HeaderTB.Clear();
+            UnderHeaderTB.Clear();
+            WholeArticleTB.Clear();
+            HeaderTB.Enabled = false;
+            UnderHeaderTB.Enabled = false;
+            AddParagraphBTN.Enabled = false;
+            AddNewArticleBTN.Enabled = false;
+            CreateArticleBTN.Enabled = true;
+            EditAnArticleBTN.Enabled = true;
         }
 
         // Получение списка статей конкретного автора
