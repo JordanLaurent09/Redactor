@@ -86,8 +86,12 @@ namespace Redactor.RoleOfUsers
             }
         }
 
+        // Появление статьи на форме при выборе ее из списка статей
+
         private void ArticleListLB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            List<string> articleText = new List<string>();
+
             ArticleNameTB.Text = ArticleListLB.SelectedItem.ToString();
 
             string articlePath = Directory.GetCurrentDirectory() + "\\" + CurrentUser.Username + "\\" + ArticleNameTB.Text + ".txt";
@@ -101,6 +105,14 @@ namespace Redactor.RoleOfUsers
             HeaderTB.Text = content[0];
 
             UnderHeaderTB.Text = content[1];
+
+            for(int i = 2; i < content.Length; i++)
+            {
+                articleText.Add(content[i]);
+            }
+
+            WholeArticleTB.Lines = articleText.ToArray();
+            
         }
     }
 }
