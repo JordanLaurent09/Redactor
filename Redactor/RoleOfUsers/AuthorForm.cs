@@ -24,13 +24,19 @@ namespace Redactor.RoleOfUsers
 
             List<string> articles = GetArticles();
 
+            if(articles.Count > 0)
+            {
+                HeaderTB.Enabled = false;
+                UnderHeaderTB.Enabled = false;
+            }
+
             foreach(string item in articles)
             {
                 ArticleListLB.Items.Add(item);
             }
 
-            HeaderTB.Enabled = false;
-            UnderHeaderTB.Enabled = false;
+            AddHeaderBTN.Enabled = false;
+            AddUnderheaderBTN.Enabled = false;
         }
 
         // Добавить новую статью
@@ -113,6 +119,23 @@ namespace Redactor.RoleOfUsers
 
             WholeArticleTB.Lines = articleText.ToArray();
             
+        }
+
+        private void CreateArticleBTN_Click(object sender, EventArgs e)
+        {
+            ArticleNameTB.Clear();
+            HeaderTB.Clear();
+            UnderHeaderTB.Clear();
+            WholeArticleTB.Clear();
+            HeaderTB.Enabled = true;
+            UnderHeaderTB.Enabled = true;
+            
+            
+        }
+
+        private void EditAnArticleBTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
