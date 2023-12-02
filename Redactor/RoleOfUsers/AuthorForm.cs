@@ -28,6 +28,8 @@ namespace Redactor.RoleOfUsers
             {
                 HeaderTB.Enabled = false;
                 UnderHeaderTB.Enabled = false;
+                ParagraphTB.Enabled = false;
+                AddParagraphBTN.Enabled = false;
             }
 
             foreach(string item in articles)
