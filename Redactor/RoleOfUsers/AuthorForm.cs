@@ -26,9 +26,9 @@ namespace Redactor.RoleOfUsers
 
             if(articles.Count > 0)
             {
-                HeaderTB.Enabled = false;
-                UnderHeaderTB.Enabled = false;
-                ParagraphTB.Enabled = false;
+                //HeaderTB.Enabled = false;
+                //UnderHeaderTB.Enabled = false;
+                //ParagraphTB.Enabled = false;
                 AddParagraphBTN.Enabled = false;
             }
 
@@ -39,6 +39,7 @@ namespace Redactor.RoleOfUsers
 
             AddHeaderBTN.Enabled = false;
             AddUnderheaderBTN.Enabled = false;
+            AddNewArticleBTN.Enabled = false;
         }
 
         // Добавить новую статью
@@ -92,6 +93,10 @@ namespace Redactor.RoleOfUsers
 
                 ParagraphTB.Text = string.Empty;
             }
+            if(HeaderTB.Text != string.Empty && UnderHeaderTB.Text != string.Empty && WholeArticleTB.Text != string.Empty)
+            {
+                AddNewArticleBTN.Enabled = true;
+            }
         }
 
         // Появление статьи на форме при выборе ее из списка статей
@@ -131,7 +136,10 @@ namespace Redactor.RoleOfUsers
             WholeArticleTB.Clear();
             HeaderTB.Enabled = true;
             UnderHeaderTB.Enabled = true;
-            
+            ParagraphTB.Enabled = true;
+            EditAnArticleBTN.Enabled = false;
+            CreateArticleBTN.Enabled = false;
+            AddParagraphBTN.Enabled = true;
             
         }
 
