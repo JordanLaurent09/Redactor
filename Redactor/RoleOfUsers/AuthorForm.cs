@@ -114,6 +114,8 @@ namespace Redactor.RoleOfUsers
             if(HeaderTB.Text != string.Empty && UnderHeaderTB.Text != string.Empty && WholeArticleTB.Text != string.Empty)
             {
                 AddNewArticleBTN.Enabled = true;
+                HeaderTB.Enabled = false;
+                UnderHeaderTB.Enabled = false;
             }
         }
 
@@ -146,6 +148,7 @@ namespace Redactor.RoleOfUsers
             
         }
 
+        // Очистка формы для написания новой статьи
         private void CreateArticleBTN_Click(object sender, EventArgs e)
         {
             ArticleNameTB.Clear();
