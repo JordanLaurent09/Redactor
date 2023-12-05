@@ -69,6 +69,8 @@ namespace Redactor.RoleOfUsers
             UnderHeaderTB.Clear();
             WholeArticleTB.Clear();
             ArticleListLB.Items.Clear();
+            _paragraphs.Clear();
+            ArticleListLB.Enabled = true;
             HeaderTB.Enabled = false;
             UnderHeaderTB.Enabled = false;
             AddParagraphBTN.Enabled = false;
@@ -80,6 +82,7 @@ namespace Redactor.RoleOfUsers
             {
                 ArticleListLB.Items.Add(item);
             }
+            
         }
 
         // Получение списка статей конкретного автора
@@ -155,6 +158,7 @@ namespace Redactor.RoleOfUsers
             EditAnArticleBTN.Enabled = false;
             CreateArticleBTN.Enabled = false;
             AddParagraphBTN.Enabled = true;
+            ArticleListLB.Enabled = false;
             
         }
 
