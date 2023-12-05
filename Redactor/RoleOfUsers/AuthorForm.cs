@@ -68,12 +68,18 @@ namespace Redactor.RoleOfUsers
             HeaderTB.Clear();
             UnderHeaderTB.Clear();
             WholeArticleTB.Clear();
+            ArticleListLB.Items.Clear();
             HeaderTB.Enabled = false;
             UnderHeaderTB.Enabled = false;
             AddParagraphBTN.Enabled = false;
             AddNewArticleBTN.Enabled = false;
             CreateArticleBTN.Enabled = true;
             EditAnArticleBTN.Enabled = true;
+            List<string> articles = GetArticles();
+            foreach (string item in articles)
+            {
+                ArticleListLB.Items.Add(item);
+            }
         }
 
         // Получение списка статей конкретного автора
