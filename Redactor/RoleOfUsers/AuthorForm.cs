@@ -167,7 +167,14 @@ namespace Redactor.RoleOfUsers
 
         private void EditAnArticleBTN_Click(object sender, EventArgs e)
         {
-
+            ArticleNameTB.Enabled = false;
+            CreateArticleBTN.Enabled = false;
+            EditAnArticleBTN.Enabled = false;
+            HeaderTB.Enabled = false;
+            UnderHeaderTB.Enabled = false;
+            AddHeaderBTN.Enabled = true;
+            AddUnderheaderBTN.Enabled = true;
+            AddParagraphBTN.Enabled = true;
         }
     }
 }
