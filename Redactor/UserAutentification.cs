@@ -40,8 +40,21 @@ namespace Redactor
 
         private void IsUserAutenticate(User currentUser)
         {
-            RoleOfUsers.AuthorForm author = new RoleOfUsers.AuthorForm(currentUser);
-            author.Show();
+            if (currentUser.Username == "admin")
+            {
+                RoleOfUsers.AdminPanel admin = new RoleOfUsers.AdminPanel(currentUser);
+                admin.Show();
+            }
+            else if(currentUser.Username == "reader")
+            {
+                RoleOfUsers.ReaderForm reader = new RoleOfUsers.ReaderForm(currentUser);
+                reader.Show();
+            }
+            else
+            {
+                RoleOfUsers.AuthorForm author = new RoleOfUsers.AuthorForm(currentUser);
+                author.Show();
+            }
         }
     }
 }

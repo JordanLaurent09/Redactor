@@ -12,9 +12,11 @@ namespace Redactor.RoleOfUsers
 {
     public partial class ReaderForm : Form
     {
-        public ReaderForm()
+        public User ReaderUser { get; set; }
+        public ReaderForm(User reader)
         {
             InitializeComponent();
+            ReaderUser = reader;
         }
     }
 }

@@ -12,9 +12,13 @@ namespace Redactor.RoleOfUsers
 {
     public partial class AdminPanel : Form
     {
-        public AdminPanel()
+
+        public User AdminUser { get; set; }
+
+        public AdminPanel(User user)
         {
             InitializeComponent();
+            AdminUser = user;
         }
     }
 }
