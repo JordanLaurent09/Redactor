@@ -45,7 +45,7 @@ namespace Redactor.RoleOfUsers
         // Добавить новую статью
         private void AddNewArticleBTN_Click(object sender, EventArgs e)
         {
-            string userPath = Directory.GetCurrentDirectory() + "\\" + CurrentUser.Username;
+            string userPath = $"{Directory.GetCurrentDirectory()}\\Articles\\{CurrentUser.Username}";
 
             string articleTitle = ArticleNameTB.Text;
 
@@ -88,7 +88,7 @@ namespace Redactor.RoleOfUsers
         // Получение списка статей конкретного автора
         private List<string> GetArticles()
         {
-            string userPath = Directory.GetCurrentDirectory() + "\\" + CurrentUser.Username;
+            string userPath = $"{Directory.GetCurrentDirectory()}\\Articles\\{CurrentUser.Username}";
             DirectoryInfo dir = new DirectoryInfo(userPath);
             List<string> articlesList = new List<string>();
             FileInfo[] files = dir.GetFiles();
@@ -127,7 +127,7 @@ namespace Redactor.RoleOfUsers
 
             ArticleNameTB.Text = ArticleListLB.SelectedItem.ToString();
 
-            string articlePath = Directory.GetCurrentDirectory() + "\\" + CurrentUser.Username + "\\" + ArticleNameTB.Text + ".txt";
+            string articlePath = Directory.GetCurrentDirectory() + "\\Articles\\" + CurrentUser.Username + "\\" + ArticleNameTB.Text + ".txt";
 
             StreamReader reader = new StreamReader(articlePath);
 
