@@ -47,7 +47,7 @@ namespace Redactor
 
             SendUsersToFile(_users, usersDataPath);
 
-            Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\" + newUser.Username);
+            Directory.CreateDirectory($"{Directory.GetCurrentDirectory()}\\Articles\\{newUser.Username}");
         }
 
         public static void SendUsersToFile(List<string> users, string fileName)

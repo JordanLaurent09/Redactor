@@ -96,6 +96,9 @@
     <EmbeddedResource Include="RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RoleOfUsers\AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoleOfUsers\AuthorForm.resx">
       <DependentUpon>AuthorForm.cs</DependentUpon>
     </EmbeddedResource>
