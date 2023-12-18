@@ -29,9 +29,9 @@ namespace Redactor
 
             newUser.Password = userPass;
 
-            newUser.Role = userRole;
+            //newUser.Role = userRole;
 
-            newUser.Condition = "en";
+            //newUser.Condition = "en";
 
             UserRegistration.RegisterUser(newUser);
 
