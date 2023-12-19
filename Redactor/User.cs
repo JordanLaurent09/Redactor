@@ -28,6 +28,10 @@ namespace Redactor
         public bool IsBlocked { get; set; } = false;
         public List<string> ArticleList { get; set; } = new List<string>();
 
+        public User()
+        {
+
+        }
 
         public User(string name)
         {
