@@ -33,5 +33,16 @@ namespace Redactor
         {
             Username = name;
         }
+
+        public User(string username, string firstName, string secondName, string email, string password, DateTime birthDate, Role role)
+        {
+            Username = username;
+            FirstName = firstName;
+            SecondName = secondName;
+            Email = email;
+            Password = password;
+            BirthDate = birthDate;
+            Role = role;
+        }
     }
 }
