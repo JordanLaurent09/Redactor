@@ -42,8 +42,8 @@ namespace Redactor
             this.label5 = new System.Windows.Forms.Label();
             this.birthDateDTP = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.authorCB = new System.Windows.Forms.CheckBox();
-            this.readerCB = new System.Windows.Forms.CheckBox();
+            this.isAuthor = new System.Windows.Forms.CheckBox();
+            this.isReader = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -153,25 +153,27 @@ namespace Redactor
             this.label6.TabIndex = 13;
             this.label6.Text = "Укажите свою дату рождения:";
             // 
-            // authorCB
+            // isAuthor
             // 
-            this.authorCB.AutoSize = true;
-            this.authorCB.Location = new System.Drawing.Point(115, 353);
-            this.authorCB.Name = "authorCB";
-            this.authorCB.Size = new System.Drawing.Size(56, 17);
-            this.authorCB.TabIndex = 14;
-            this.authorCB.Text = "Автор";
-            this.authorCB.UseVisualStyleBackColor = true;
+            this.isAuthor.AutoSize = true;
+            this.isAuthor.Location = new System.Drawing.Point(115, 353);
+            this.isAuthor.Name = "isAuthor";
+            this.isAuthor.Size = new System.Drawing.Size(56, 17);
+            this.isAuthor.TabIndex = 14;
+            this.isAuthor.Text = "Автор";
+            this.isAuthor.UseVisualStyleBackColor = true;
+            this.isAuthor.CheckedChanged += new System.EventHandler(this.isAuthor_CheckedChanged);
             // 
-            // readerCB
+            // isReader
             // 
-            this.readerCB.AutoSize = true;
-            this.readerCB.Location = new System.Drawing.Point(233, 353);
-            this.readerCB.Name = "readerCB";
-            this.readerCB.Size = new System.Drawing.Size(74, 17);
-            this.readerCB.TabIndex = 15;
-            this.readerCB.Text = "Читатель";
-            this.readerCB.UseVisualStyleBackColor = true;
+            this.isReader.AutoSize = true;
+            this.isReader.Location = new System.Drawing.Point(233, 353);
+            this.isReader.Name = "isReader";
+            this.isReader.Size = new System.Drawing.Size(74, 17);
+            this.isReader.TabIndex = 15;
+            this.isReader.Text = "Читатель";
+            this.isReader.UseVisualStyleBackColor = true;
+            this.isReader.CheckedChanged += new System.EventHandler(this.isReader_CheckedChanged);
             // 
             // label7
             // 
@@ -188,8 +190,8 @@ namespace Redactor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.readerCB);
-            this.Controls.Add(this.authorCB);
+            this.Controls.Add(this.isReader);
+            this.Controls.Add(this.isAuthor);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.birthDateDTP);
             this.Controls.Add(this.label5);
@@ -225,8 +227,8 @@ namespace Redactor
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker birthDateDTP;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox authorCB;
-        private System.Windows.Forms.CheckBox readerCB;
+        private System.Windows.Forms.CheckBox isAuthor;
+        private System.Windows.Forms.CheckBox isReader;
         private System.Windows.Forms.Label label7;
     }
 }
