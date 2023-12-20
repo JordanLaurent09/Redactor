@@ -50,11 +50,11 @@ namespace Redactor
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(175, 246);
+            this.label2.Location = new System.Drawing.Point(187, 261);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
+            this.label2.Size = new System.Drawing.Size(113, 26);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Зарегистрируйтесь";
+            this.label2.Text = "Нет учетной записи?\r\nЗарегистрируйтесь:\r\n";
             // 
             // userLoginTB
             // 
@@ -65,21 +65,21 @@ namespace Redactor
             // 
             // logBTN
             // 
-            this.logBTN.Location = new System.Drawing.Point(538, 118);
+            this.logBTN.Location = new System.Drawing.Point(181, 178);
             this.logBTN.Name = "logBTN";
-            this.logBTN.Size = new System.Drawing.Size(75, 23);
+            this.logBTN.Size = new System.Drawing.Size(113, 23);
             this.logBTN.TabIndex = 3;
-            this.logBTN.Text = "button1";
+            this.logBTN.Text = "Войти в систему";
             this.logBTN.UseVisualStyleBackColor = true;
             this.logBTN.Click += new System.EventHandler(this.logBTN_Click);
             // 
             // regBTN
             // 
-            this.regBTN.Location = new System.Drawing.Point(463, 335);
+            this.regBTN.Location = new System.Drawing.Point(203, 302);
             this.regBTN.Name = "regBTN";
-            this.regBTN.Size = new System.Drawing.Size(75, 23);
+            this.regBTN.Size = new System.Drawing.Size(75, 49);
             this.regBTN.TabIndex = 4;
-            this.regBTN.Text = "button2";
+            this.regBTN.Text = "Создать учетную запись";
             this.regBTN.UseVisualStyleBackColor = true;
             this.regBTN.Click += new System.EventHandler(this.regBTN_Click);
             // 
@@ -103,7 +103,7 @@ namespace Redactor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(475, 450);
             this.Controls.Add(this.userPasswordTB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.regBTN);

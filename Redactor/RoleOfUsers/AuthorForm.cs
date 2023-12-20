@@ -45,59 +45,50 @@ namespace Redactor.RoleOfUsers
         // Добавить новую статью
         private void AddNewArticleBTN_Click(object sender, EventArgs e)
         {
-            string userPath = $"{Directory.GetCurrentDirectory()}\\Articles\\{CurrentUser.Username}";
+            //string userPath = $"{Directory.GetCurrentDirectory()}\\Articles\\{CurrentUser.Username}";
 
-            string articleTitle = ArticleNameTB.Text;
+            //string articleTitle = ArticleNameTB.Text;
 
-            string articleHeader = HeaderTB.Text;
+            //string articleHeader = HeaderTB.Text;
 
-            string articleSubHeader = UnderHeaderTB.Text;
+            //string articleSubHeader = UnderHeaderTB.Text;
 
-            string[] wholeArticle = WholeArticleTB.Lines;
+            //string[] wholeArticle = WholeArticleTB.Lines;
 
-            StreamWriter writer = new StreamWriter(userPath + "\\" + articleTitle + ".txt");
+            //StreamWriter writer = new StreamWriter(userPath + "\\" + articleTitle + ".txt");
 
-            writer.WriteLine(articleHeader);
-            writer.WriteLine(articleSubHeader);
-            foreach(string item in wholeArticle)
-            {
-                writer.WriteLine(item);
-            }
-            writer.Close();
-            ArticleNameTB.Clear();
-            HeaderTB.Clear();
-            UnderHeaderTB.Clear();
-            WholeArticleTB.Clear();
-            ArticleListLB.Items.Clear();
-            _paragraphs.Clear();
-            ArticleListLB.Enabled = true;
-            HeaderTB.Enabled = false;
-            UnderHeaderTB.Enabled = false;
-            AddParagraphBTN.Enabled = false;
-            AddNewArticleBTN.Enabled = false;
-            CreateArticleBTN.Enabled = true;
-            EditAnArticleBTN.Enabled = true;
-            List<string> articles = GetArticles();
-            foreach (string item in articles)
-            {
-                ArticleListLB.Items.Add(item);
-            }
+            //writer.WriteLine(articleHeader);
+            //writer.WriteLine(articleSubHeader);
+            //foreach(string item in wholeArticle)
+            //{
+            //    writer.WriteLine(item);
+            //}
+            //writer.Close();
+            //ArticleNameTB.Clear();
+            //HeaderTB.Clear();
+            //UnderHeaderTB.Clear();
+            //WholeArticleTB.Clear();
+            //ArticleListLB.Items.Clear();
+            //_paragraphs.Clear();
+            //ArticleListLB.Enabled = true;
+            //HeaderTB.Enabled = false;
+            //UnderHeaderTB.Enabled = false;
+            //AddParagraphBTN.Enabled = false;
+            //AddNewArticleBTN.Enabled = false;
+            //CreateArticleBTN.Enabled = true;
+            //EditAnArticleBTN.Enabled = true;
+            //List<string> articles = GetArticles();
+            //foreach (string item in articles)
+            //{
+            //    ArticleListLB.Items.Add(item);
+            //}
             
         }
 
         // Получение списка статей конкретного автора
         private List<string> GetArticles()
         {
-            string userPath = $"{Directory.GetCurrentDirectory()}\\Articles\\{CurrentUser.Username}";
-            DirectoryInfo dir = new DirectoryInfo(userPath);
-            List<string> articlesList = new List<string>();
-            FileInfo[] files = dir.GetFiles();
-            
-            for(int i = 0; i < files.Length; i++)
-            {
-                articlesList.Add(files[i].Name.Substring(0, files[i].Name.Length - 4));
-            }
-            return articlesList;
+            return CurrentUser.ArticleList;
         }
 
         // Добавление нового абзаца в статью
@@ -123,28 +114,28 @@ namespace Redactor.RoleOfUsers
 
         private void ArticleListLB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> articleText = new List<string>();
+            //List<string> articleText = new List<string>();
 
-            ArticleNameTB.Text = ArticleListLB.SelectedItem.ToString();
+            //ArticleNameTB.Text = ArticleListLB.SelectedItem.ToString();
 
-            string articlePath = Directory.GetCurrentDirectory() + "\\Articles\\" + CurrentUser.Username + "\\" + ArticleNameTB.Text + ".txt";
+            //string articlePath = Directory.GetCurrentDirectory() + "\\Articles\\" + CurrentUser.Username + "\\" + ArticleNameTB.Text + ".txt";
 
-            StreamReader reader = new StreamReader(articlePath);
+            //StreamReader reader = new StreamReader(articlePath);
 
-            string line = reader.ReadToEnd();
+            //string line = reader.ReadToEnd();
 
-            string[] content = line.Split('\n');
+            //string[] content = line.Split('\n');
 
-            HeaderTB.Text = content[0];
+            //HeaderTB.Text = content[0];
 
-            UnderHeaderTB.Text = content[1];
+            //UnderHeaderTB.Text = content[1];
 
-            for(int i = 2; i < content.Length; i++)
-            {
-                articleText.Add(content[i]);
-            }
+            //for(int i = 2; i < content.Length; i++)
+            //{
+            //    articleText.Add(content[i]);
+            //}
 
-            WholeArticleTB.Lines = articleText.ToArray();
+            //WholeArticleTB.Lines = articleText.ToArray();
             
         }
 
