@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Newtonsoft.Json;
 using Redactor.RoleOfUsers;
 using System.IO;
 
@@ -9,28 +9,36 @@ namespace Redactor
 {
     class UserAutentification
     {
-        public void Autentificate(string userLogin)
+        public void Autentificate(string userLogin, string userPassword)
         {
             StreamReader reader = new StreamReader("users.txt");
             string usersData = reader.ReadToEnd();
-
-            string[] names = usersData.Split(' ');
+            User[] users = JsonConvert.DeserializeObject<User[]>(usersData) ?? throw new Exception("Нет данных");
+            //string[] names = usersData.Split(' ');
 
             reader.Close();
 
             User currentUser = null;
 
-            foreach(string item in names)
+            foreach(User user in users)
             {
-                if(item == userLogin)
+                if(user.Username == userLogin && user.Password == userPassword)
                 {
-                    currentUser = new User(item);
+                    currentUser = user;
                 }
             }
 
+            //foreach(string item in names)
+            //{
+            //    if(item == userLogin)
+            //    {
+            //        currentUser = new User(item);
+            //    }
+            //}
+
             if(currentUser == null)
             {
-                System.Windows.Forms.MessageBox.Show("Пользователь не найден");
+                System.Windows.Forms.MessageBox.Show("Пользователь не найден или пароль неверен");
                 return;
             }
 
