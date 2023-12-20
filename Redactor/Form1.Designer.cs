@@ -34,6 +34,8 @@ namespace Redactor
             this.userLoginTB = new System.Windows.Forms.TextBox();
             this.logBTN = new System.Windows.Forms.Button();
             this.regBTN = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.userPasswordTB = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +58,7 @@ namespace Redactor
             // 
             // userLoginTB
             // 
-            this.userLoginTB.Location = new System.Drawing.Point(228, 91);
+            this.userLoginTB.Location = new System.Drawing.Point(178, 67);
             this.userLoginTB.Name = "userLoginTB";
             this.userLoginTB.Size = new System.Drawing.Size(100, 20);
             this.userLoginTB.TabIndex = 2;
@@ -81,11 +83,29 @@ namespace Redactor
             this.regBTN.UseVisualStyleBackColor = true;
             this.regBTN.Click += new System.EventHandler(this.regBTN_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(178, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Введите свой пароль";
+            // 
+            // userPasswordTB
+            // 
+            this.userPasswordTB.Location = new System.Drawing.Point(181, 135);
+            this.userPasswordTB.Name = "userPasswordTB";
+            this.userPasswordTB.Size = new System.Drawing.Size(100, 20);
+            this.userPasswordTB.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.userPasswordTB);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.regBTN);
             this.Controls.Add(this.logBTN);
             this.Controls.Add(this.userLoginTB);
@@ -106,6 +126,8 @@ namespace Redactor
         private System.Windows.Forms.TextBox userLoginTB;
         private System.Windows.Forms.Button logBTN;
         private System.Windows.Forms.Button regBTN;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox userPasswordTB;
     }
 }
 

@@ -22,7 +22,7 @@ namespace Redactor
         private void logBTN_Click(object sender, EventArgs e)
         {
             UserAutentification userAutentification = new UserAutentification();
-            userAutentification.Autentificate(userLoginTB.Text);
+            userAutentification.Autentificate(userLoginTB.Text, userPasswordTB.Text);
             //Hide();
         }
 

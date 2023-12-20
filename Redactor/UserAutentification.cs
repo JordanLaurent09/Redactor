@@ -11,7 +11,7 @@ namespace Redactor
     {
         public void Autentificate(string userLogin, string userPassword)
         {
-            StreamReader reader = new StreamReader("users.txt");
+            StreamReader reader = new StreamReader("users.json");
             string usersData = reader.ReadToEnd();
             User[] users = JsonConvert.DeserializeObject<User[]>(usersData) ?? throw new Exception("Нет данных");
             //string[] names = usersData.Split(' ');
