@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Redactor.RoleOfUsers;
 using System.IO;
 
 namespace Redactor
@@ -40,21 +40,36 @@ namespace Redactor
 
         private void IsUserAutenticate(User currentUser)
         {
-            if (currentUser.Username == "admin")
+            switch (currentUser.Role)
             {
-                RoleOfUsers.AdminPanel admin = new RoleOfUsers.AdminPanel(currentUser);
-                admin.Show();
+                case Role.Admin:
+                    AdminPanel adminPanel = new AdminPanel(currentUser);
+                    adminPanel.Show();
+                    break;
+                case Role.Reader:
+                    ReaderForm readerForm = new ReaderForm(currentUser);
+                    readerForm.Show();
+                    break;
+                case Role.Author:
+                    AuthorForm authorForm = new AuthorForm(currentUser);
+                    authorForm.Show();
+                    break;
             }
-            else if(currentUser.Username == "reader")
-            {
-                RoleOfUsers.ReaderForm reader = new RoleOfUsers.ReaderForm(currentUser);
-                reader.Show();
-            }
-            else
-            {
-                RoleOfUsers.AuthorForm author = new RoleOfUsers.AuthorForm(currentUser);
-                author.Show();
-            }
+            //if (currentUser.Username == "admin")
+            //{
+            //    RoleOfUsers.AdminPanel admin = new RoleOfUsers.AdminPanel(currentUser);
+            //    admin.Show();
+            //}
+            //else if(currentUser.Username == "reader")
+            //{
+            //    RoleOfUsers.ReaderForm reader = new RoleOfUsers.ReaderForm(currentUser);
+            //    reader.Show();
+            //}
+            //else
+            //{
+            //    RoleOfUsers.AuthorForm author = new RoleOfUsers.AuthorForm(currentUser);
+            //    author.Show();
+            //}
         }
     }
 }
