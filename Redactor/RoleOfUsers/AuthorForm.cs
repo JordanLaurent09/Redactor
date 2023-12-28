@@ -134,29 +134,26 @@ namespace Redactor.RoleOfUsers
 
         private void ArticleListLB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //List<string> articleText = new List<string>();
+            List<string> temp = new List<string>();
+            List<string> articleText;
 
-            //ArticleNameTB.Text = ArticleListLB.SelectedItem.ToString();
+            ArticleNameTB.Text = ArticleListLB.SelectedItem.ToString();
 
-            //string articlePath = Directory.GetCurrentDirectory() + "\\Articles\\" + CurrentUser.Username + "\\" + ArticleNameTB.Text + ".txt";
+            string articlePath = $"{Directory.GetCurrentDirectory()}\\AuthorArticles\\{CurrentUser.Username}\\{ArticleNameTB.Text}.json";
 
-            //StreamReader reader = new StreamReader(articlePath);
+            string article = File.ReadAllText(articlePath);
 
-            //string line = reader.ReadToEnd();
+            articleText = JsonConvert.DeserializeObject<List<string>>(article);
 
-            //string[] content = line.Split('\n');
-
-            //HeaderTB.Text = content[0];
-
-            //UnderHeaderTB.Text = content[1];
-
-            //for(int i = 2; i < content.Length; i++)
-            //{
-            //    articleText.Add(content[i]);
-            //}
-
-            //WholeArticleTB.Lines = articleText.ToArray();
+            HeaderTB.Text = articleText[1];
+            UnderHeaderTB.Text = articleText[2];
             
+            for(int i = 3; i < articleText.Count; i++)
+            {
+                temp.Add(articleText[i]);
+            }
+
+            WholeArticleTB.Lines = temp.ToArray();
         }
 
         // Очистка формы для написания новой статьи
