@@ -45,6 +45,12 @@ namespace Redactor
             newUser.RegistrationDate = DateTime.Now;
             _users.Add(newUser);
 
+            // Создание папки для статей в случае, если текущий пользователь является автором
+            if(newUser.Role == Role.Author)
+            {
+                string pathToArticlesFolder = $"{Directory.GetCurrentDirectory()}\\AuthorArticles";
+                Directory.CreateDirectory($"{pathToArticlesFolder}\\{newUser.Username}");
+            }
 
             SerializeUsersToJson(_users, _userDataPath);
         }
