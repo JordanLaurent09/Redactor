@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 using System.Windows.Forms;
 using System.IO;
 
@@ -45,6 +45,26 @@ namespace Redactor.RoleOfUsers
         // Добавить новую статью
         private void AddNewArticleBTN_Click(object sender, EventArgs e)
         {
+            List<string> article = new List<string>();
+            string articlePath = $"{Directory.GetCurrentDirectory()}\\AuthorArticles\\{CurrentUser.Username}";
+
+            article.Add(ArticleNameTB.Text);
+            article.Add(HeaderTB.Text);
+            article.Add(UnderHeaderTB.Text);
+
+            foreach(string line in WholeArticleTB.Lines)
+            {
+                article.Add(line);
+            }
+
+            JsonSerializer serializer = new JsonSerializer();
+
+            using(StreamWriter sw = new StreamWriter($"{articlePath}\\{ArticleNameTB.Text}.json"))
+                using(JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, article);
+            }
+
             //string userPath = $"{Directory.GetCurrentDirectory()}\\Articles\\{CurrentUser.Username}";
 
             //string articleTitle = ArticleNameTB.Text;
