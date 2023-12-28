@@ -14,6 +14,7 @@ namespace Redactor.RoleOfUsers
     public partial class AuthorForm : Form
     {
         private static List<string> _paragraphs = new List<string>();
+        private static List<User> _users;
 
         public User CurrentUser { get; set; }
 
@@ -65,44 +66,43 @@ namespace Redactor.RoleOfUsers
                 serializer.Serialize(writer, article);
             }
 
-            //string userPath = $"{Directory.GetCurrentDirectory()}\\Articles\\{CurrentUser.Username}";
+            _users = GetUsers();
 
-            //string articleTitle = ArticleNameTB.Text;
+            foreach(User user in _users)
+            {
+                if(user.Username == CurrentUser.Username)
+                {
+                    user.ArticleList.Add(ArticleNameTB.Text);
+                }
+            }
 
-            //string articleHeader = HeaderTB.Text;
+            RewriteUsers(_users);
 
-            //string articleSubHeader = UnderHeaderTB.Text;
+            CurrentUser.ArticleList.Add(ArticleNameTB.Text);
 
-            //string[] wholeArticle = WholeArticleTB.Lines;
 
-            //StreamWriter writer = new StreamWriter(userPath + "\\" + articleTitle + ".txt");
+            ArticleNameTB.Clear();
+            HeaderTB.Clear();
+            UnderHeaderTB.Clear();
+            WholeArticleTB.Clear();
+            ArticleListLB.Items.Clear();
+            _paragraphs.Clear();
+            ArticleListLB.Enabled = true;
+            HeaderTB.Enabled = false;
+            UnderHeaderTB.Enabled = false;
+            AddParagraphBTN.Enabled = false;
+            AddNewArticleBTN.Enabled = false;
+            CreateArticleBTN.Enabled = true;
+            EditAnArticleBTN.Enabled = true;
 
-            //writer.WriteLine(articleHeader);
-            //writer.WriteLine(articleSubHeader);
-            //foreach(string item in wholeArticle)
-            //{
-            //    writer.WriteLine(item);
-            //}
-            //writer.Close();
-            //ArticleNameTB.Clear();
-            //HeaderTB.Clear();
-            //UnderHeaderTB.Clear();
-            //WholeArticleTB.Clear();
-            //ArticleListLB.Items.Clear();
-            //_paragraphs.Clear();
-            //ArticleListLB.Enabled = true;
-            //HeaderTB.Enabled = false;
-            //UnderHeaderTB.Enabled = false;
-            //AddParagraphBTN.Enabled = false;
-            //AddNewArticleBTN.Enabled = false;
-            //CreateArticleBTN.Enabled = true;
-            //EditAnArticleBTN.Enabled = true;
-            //List<string> articles = GetArticles();
-            //foreach (string item in articles)
-            //{
-            //    ArticleListLB.Items.Add(item);
-            //}
-            
+
+
+            List<string> articles = GetArticles();
+            foreach (string item in articles)
+            {
+                ArticleListLB.Items.Add(item);
+            }
+
         }
 
         // Получение списка статей конкретного автора
@@ -186,6 +186,36 @@ namespace Redactor.RoleOfUsers
             AddHeaderBTN.Enabled = true;
             AddUnderheaderBTN.Enabled = true;
             AddParagraphBTN.Enabled = true;
+        }
+
+
+        // Получение списка пользователей
+        private List<User> GetUsers()
+        {
+            List<User> users;
+
+            string _userDataPath = Directory.GetCurrentDirectory() + "\\users.json";
+
+            string usersInfo = File.ReadAllText(_userDataPath);
+
+            users = JsonConvert.DeserializeObject<List<User>>(usersInfo);
+
+            return users;
+        }
+
+
+        // Перезапись списка пользователей в связи с изменением информации о статьях
+
+        private void RewriteUsers(List<User> users)
+        {
+            string fileName = $"{Directory.GetCurrentDirectory()}\\users.json";
+            JsonSerializer serializer = new JsonSerializer();
+
+            using (StreamWriter sw = new StreamWriter(fileName))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, users);
+            }
         }
     }
 }
