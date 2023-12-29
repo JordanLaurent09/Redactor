@@ -115,8 +115,38 @@ namespace Redactor.RoleOfUsers
             }
         }
 
+        private void removeUserBTN_Click(object sender, EventArgs e)
+        {
+            if(usersLB.Text != string.Empty)
+            {
+                foreach(User user in _users)
+                {
+                    if(user.Username == usersLB.Text)
+                    {
+                        _users.Remove(user);
+                        MessageBox.Show("Пользователь успешно удален");
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не выбран");
+            }
+        }
+
 
 
         // Запись обновленного списка пользователей в файл
+        private void saveChangesBTN_Click(object sender, EventArgs e)
+        {
+            JsonSerializer serializer = new JsonSerializer();
+
+            using(StreamWriter streamWriter = new StreamWriter(_path))
+                using(JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
+            {
+                serializer.Serialize(jsonWriter, _users);
+            }
+        }
     }
 }

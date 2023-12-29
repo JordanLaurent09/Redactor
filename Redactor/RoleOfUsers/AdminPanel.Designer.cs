@@ -228,6 +228,7 @@ namespace Redactor.RoleOfUsers
             this.removeUserBTN.TabIndex = 20;
             this.removeUserBTN.Text = "Удалить пользователя";
             this.removeUserBTN.UseVisualStyleBackColor = true;
+            this.removeUserBTN.Click += new System.EventHandler(this.removeUserBTN_Click);
             // 
             // unblockUserBTN
             // 
@@ -247,6 +248,7 @@ namespace Redactor.RoleOfUsers
             this.saveChangesBTN.TabIndex = 22;
             this.saveChangesBTN.Text = "Сохранить изменения";
             this.saveChangesBTN.UseVisualStyleBackColor = true;
+            this.saveChangesBTN.Click += new System.EventHandler(this.saveChangesBTN_Click);
             // 
             // AdminPanel
             // 
