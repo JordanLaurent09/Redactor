@@ -48,6 +48,10 @@ namespace Redactor.RoleOfUsers
             this.regDateTB = new System.Windows.Forms.TextBox();
             this.roleTB = new System.Windows.Forms.TextBox();
             this.isBlockedTB = new System.Windows.Forms.TextBox();
+            this.blockUserBTN = new System.Windows.Forms.Button();
+            this.removeUserBTN = new System.Windows.Forms.Button();
+            this.unblockUserBTN = new System.Windows.Forms.Button();
+            this.saveChangesBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usersLB
@@ -70,9 +74,9 @@ namespace Redactor.RoleOfUsers
             // 
             // createUserBTN
             // 
-            this.createUserBTN.Location = new System.Drawing.Point(291, 346);
+            this.createUserBTN.Location = new System.Drawing.Point(675, 204);
             this.createUserBTN.Name = "createUserBTN";
-            this.createUserBTN.Size = new System.Drawing.Size(93, 63);
+            this.createUserBTN.Size = new System.Drawing.Size(100, 48);
             this.createUserBTN.TabIndex = 2;
             this.createUserBTN.Text = "Создать нового пользователя";
             this.createUserBTN.UseVisualStyleBackColor = true;
@@ -206,11 +210,51 @@ namespace Redactor.RoleOfUsers
             this.isBlockedTB.Size = new System.Drawing.Size(100, 20);
             this.isBlockedTB.TabIndex = 18;
             // 
+            // blockUserBTN
+            // 
+            this.blockUserBTN.Location = new System.Drawing.Point(560, 114);
+            this.blockUserBTN.Name = "blockUserBTN";
+            this.blockUserBTN.Size = new System.Drawing.Size(99, 64);
+            this.blockUserBTN.TabIndex = 19;
+            this.blockUserBTN.Text = "Заблокировать пользователя";
+            this.blockUserBTN.UseVisualStyleBackColor = true;
+            // 
+            // removeUserBTN
+            // 
+            this.removeUserBTN.Location = new System.Drawing.Point(560, 204);
+            this.removeUserBTN.Name = "removeUserBTN";
+            this.removeUserBTN.Size = new System.Drawing.Size(99, 48);
+            this.removeUserBTN.TabIndex = 20;
+            this.removeUserBTN.Text = "Удалить пользователя";
+            this.removeUserBTN.UseVisualStyleBackColor = true;
+            // 
+            // unblockUserBTN
+            // 
+            this.unblockUserBTN.Location = new System.Drawing.Point(675, 115);
+            this.unblockUserBTN.Name = "unblockUserBTN";
+            this.unblockUserBTN.Size = new System.Drawing.Size(100, 63);
+            this.unblockUserBTN.TabIndex = 21;
+            this.unblockUserBTN.Text = "Разблокировать пользователя";
+            this.unblockUserBTN.UseVisualStyleBackColor = true;
+            // 
+            // saveChangesBTN
+            // 
+            this.saveChangesBTN.Location = new System.Drawing.Point(634, 282);
+            this.saveChangesBTN.Name = "saveChangesBTN";
+            this.saveChangesBTN.Size = new System.Drawing.Size(75, 38);
+            this.saveChangesBTN.TabIndex = 22;
+            this.saveChangesBTN.Text = "Сохранить изменения";
+            this.saveChangesBTN.UseVisualStyleBackColor = true;
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.saveChangesBTN);
+            this.Controls.Add(this.unblockUserBTN);
+            this.Controls.Add(this.removeUserBTN);
+            this.Controls.Add(this.blockUserBTN);
             this.Controls.Add(this.isBlockedTB);
             this.Controls.Add(this.roleTB);
             this.Controls.Add(this.regDateTB);
@@ -258,5 +302,9 @@ namespace Redactor.RoleOfUsers
         private System.Windows.Forms.TextBox regDateTB;
         private System.Windows.Forms.TextBox roleTB;
         private System.Windows.Forms.TextBox isBlockedTB;
+        private System.Windows.Forms.Button blockUserBTN;
+        private System.Windows.Forms.Button removeUserBTN;
+        private System.Windows.Forms.Button unblockUserBTN;
+        private System.Windows.Forms.Button saveChangesBTN;
     }
 }
