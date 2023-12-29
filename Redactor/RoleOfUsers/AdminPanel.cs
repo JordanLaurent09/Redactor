@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+using Newtonsoft.Json;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
@@ -12,8 +12,8 @@ namespace Redactor.RoleOfUsers
 {
     public partial class AdminPanel : Form
     {
-        private static List<string> _users = new List<string>();
-        private static string _path = $"{Directory.GetCurrentDirectory()}\\users.txt";
+        private static List<User> _users = new List<User>();
+        private static string _path = $"{Directory.GetCurrentDirectory()}\\users.json";
         public User AdminUser { get; set; }
 
         public AdminPanel(User user)
@@ -25,26 +25,47 @@ namespace Redactor.RoleOfUsers
         }
 
 
+        // Вывод списка пользователей в листбокс
         public void GetUsersList()
         {
-            StreamReader streamReader = new StreamReader(_path);
+            string usersInfo = File.ReadAllText(_path);
 
-            string usersData = streamReader.ReadToEnd();
-
-            string[] names = usersData.Split(' ');
-
-            streamReader.Close();
-
-            for(int i = 0; i < names.Length; i++)
+            _users = JsonConvert.DeserializeObject<List<User>>(usersInfo);
+            
+            for(int i = 0; i < _users.Count; i++)
             {
-                usersLB.Items.Add(names[i]);
+                usersLB.Items.Add(_users[i].Username);
             }
         }
 
+        // Создание пользователя администратором
         private void createUserBTN_Click(object sender, EventArgs e)
         {
             RegistrationForm registrationForm = new RegistrationForm();
             registrationForm.Show();
+        }
+
+
+        // Отображение информации о пользователе при выборе его логина
+        private void usersLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            usersLB.Text = usersLB.SelectedItem.ToString();
+
+            foreach(User user in _users)
+            {
+                if(usersLB.Text == user.Username)
+                {
+                    idTB.Text = user.Id.ToString();
+                    firstNameTB.Text = user.FirstName;
+                    secondNameTB.Text = user.SecondName;
+                    emailTB.Text = user.Email;
+                    birthDateTB.Text = user.BirthDate.ToString();
+                    regDateTB.Text = user.RegistrationDate.ToString();
+                    roleTB.Text = user.Role.ToString();
+                    isBlockedTB.Text = user.IsBlocked.ToString();
+                }
+                
+            }
         }
     }
 }
