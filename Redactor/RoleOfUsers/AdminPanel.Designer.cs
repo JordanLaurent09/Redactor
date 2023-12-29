@@ -218,6 +218,7 @@ namespace Redactor.RoleOfUsers
             this.blockUserBTN.TabIndex = 19;
             this.blockUserBTN.Text = "Заблокировать пользователя";
             this.blockUserBTN.UseVisualStyleBackColor = true;
+            this.blockUserBTN.Click += new System.EventHandler(this.blockUserBTN_Click);
             // 
             // removeUserBTN
             // 
@@ -236,6 +237,7 @@ namespace Redactor.RoleOfUsers
             this.unblockUserBTN.TabIndex = 21;
             this.unblockUserBTN.Text = "Разблокировать пользователя";
             this.unblockUserBTN.UseVisualStyleBackColor = true;
+            this.unblockUserBTN.Click += new System.EventHandler(this.unblockUserBTN_Click);
             // 
             // saveChangesBTN
             // 

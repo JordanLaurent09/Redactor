@@ -68,6 +68,55 @@ namespace Redactor.RoleOfUsers
             }
         }
 
+        // Блокировка пользователя
+        private void blockUserBTN_Click(object sender, EventArgs e)
+        {
+            if(isBlockedTB.Text != string.Empty && isBlockedTB.Text != "True")
+            {
+                isBlockedTB.Text = "True";
+
+                foreach(User user in _users)
+                {
+                    if(usersLB.Text == user.Username)
+                    {
+                        user.IsBlocked = true;
+                        MessageBox.Show("Пользователь успешно заблокирован!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пользователь либо не выбран, либо уже заблокирован");
+                return;
+            }
+        }
+
+
+        // Разблокировка пользователя
+        private void unblockUserBTN_Click(object sender, EventArgs e)
+        {
+            if (isBlockedTB.Text != string.Empty && isBlockedTB.Text != "False")
+            {
+                isBlockedTB.Text = "False";
+
+                foreach (User user in _users)
+                {
+                    if (usersLB.Text == user.Username)
+                    {
+                        user.IsBlocked = false;
+                        MessageBox.Show("Пользователь успешно разблокирован!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пользователь либо не выбран, либо уже разблокирован");
+                return;
+            }
+        }
+
+
+
         // Запись обновленного списка пользователей в файл
     }
 }
