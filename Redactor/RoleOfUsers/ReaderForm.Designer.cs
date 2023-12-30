@@ -45,6 +45,7 @@ namespace Redactor.RoleOfUsers
             this.authorsLB.Name = "authorsLB";
             this.authorsLB.Size = new System.Drawing.Size(120, 381);
             this.authorsLB.TabIndex = 0;
+            this.authorsLB.SelectedIndexChanged += new System.EventHandler(this.authorsLB_SelectedIndexChanged);
             // 
             // articlesLB
             // 

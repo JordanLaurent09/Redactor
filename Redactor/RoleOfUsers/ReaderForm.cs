@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Windows.Forms;
 
@@ -30,12 +25,29 @@ namespace Redactor.RoleOfUsers
         public void CreateAuthorsList()
         {
             DirectoryInfo dirInfo = new DirectoryInfo(_path);
-
+       
             DirectoryInfo[] directories = dirInfo.GetDirectories();
 
             foreach(var item in directories)
             {
                 authorsLB.Items.Add(item.Name);
+            }
+        }
+        
+
+        // Отображение статей при выборе автора
+        private void authorsLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string articlesPath = $"{_path}\\{authorsLB.Text}";
+
+            DirectoryInfo dirInfo = new DirectoryInfo(articlesPath);
+
+            FileInfo[] files = dirInfo.GetFiles();
+
+            foreach(var item in files)
+            {
+                _titles.Add(item.Name);
+                articlesLB.Items.Add(item.Name.Substring(0, item.Name.Length - 5));
             }
         }
     }
