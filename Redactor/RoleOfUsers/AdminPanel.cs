@@ -71,7 +71,7 @@ namespace Redactor.RoleOfUsers
         // Блокировка пользователя
         private void blockUserBTN_Click(object sender, EventArgs e)
         {
-            if(isBlockedTB.Text != string.Empty && isBlockedTB.Text != "True")
+            if(isBlockedTB.Text != string.Empty && isBlockedTB.Text != "True" && usersLB.Text != "admin")
             {
                 isBlockedTB.Text = "True";
 
@@ -95,7 +95,7 @@ namespace Redactor.RoleOfUsers
         // Разблокировка пользователя
         private void unblockUserBTN_Click(object sender, EventArgs e)
         {
-            if (isBlockedTB.Text != string.Empty && isBlockedTB.Text != "False")
+            if (isBlockedTB.Text != string.Empty && isBlockedTB.Text != "False" && usersLB.Text != "admin")
             {
                 isBlockedTB.Text = "False";
 
@@ -117,7 +117,7 @@ namespace Redactor.RoleOfUsers
 
         private void removeUserBTN_Click(object sender, EventArgs e)
         {
-            if(usersLB.Text != string.Empty)
+            if(usersLB.Text != string.Empty && usersLB.Text != "admin")
             {
                 foreach(User user in _users)
                 {
