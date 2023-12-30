@@ -54,6 +54,7 @@ namespace Redactor.RoleOfUsers
             this.articlesLB.Name = "articlesLB";
             this.articlesLB.Size = new System.Drawing.Size(124, 381);
             this.articlesLB.TabIndex = 1;
+            this.articlesLB.SelectedIndexChanged += new System.EventHandler(this.articlesLB_SelectedIndexChanged);
             // 
             // label1
             // 

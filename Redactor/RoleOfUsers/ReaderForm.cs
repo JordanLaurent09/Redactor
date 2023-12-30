@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Redactor.RoleOfUsers
 {
@@ -49,6 +50,31 @@ namespace Redactor.RoleOfUsers
                 _titles.Add(item.Name);
                 articlesLB.Items.Add(item.Name.Substring(0, item.Name.Length - 5));
             }
+        }
+
+
+        // Вывод статьи в текстбоксы 
+        private void articlesLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string articleName = $"{articlesLB.SelectedItem.ToString()}.json";
+
+            string fullPathToFile = $"{_path}\\{authorsLB.Text}\\{articleName}";
+
+            string article = File.ReadAllText(fullPathToFile);
+
+            List<string> text = JsonConvert.DeserializeObject<List<string>>(article);
+
+            List<string> temp = new List<string>();
+
+            headerTB.Text = text[1];
+            underHeaderTB.Text = text[2];
+
+            for(int i = 3; i < text.Count; i++)
+            {
+                temp.Add(text[i]);
+            }
+
+            articleTB.Lines = temp.ToArray();
         }
     }
 }
