@@ -105,6 +105,9 @@
     <EmbeddedResource Include="RoleOfUsers\AuthorForm.resx">
       <DependentUpon>AuthorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RoleOfUsers\ReaderForm.resx">
+      <DependentUpon>ReaderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
