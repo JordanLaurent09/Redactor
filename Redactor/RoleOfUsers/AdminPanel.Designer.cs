@@ -288,6 +288,7 @@ namespace Redactor.RoleOfUsers
             this.revokeModPrivBTN.TabIndex = 26;
             this.revokeModPrivBTN.Text = "Отозвать полномочия модератора";
             this.revokeModPrivBTN.UseVisualStyleBackColor = true;
+            this.revokeModPrivBTN.Click += new System.EventHandler(this.revokeModPrivBTN_Click);
             // 
             // AdminPanel
             // 

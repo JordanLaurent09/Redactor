@@ -152,11 +152,49 @@ namespace Redactor.RoleOfUsers
             }
         }
 
+
+        // Назначение читателя на роль модератора
         private void grantModPrivBTN_Click(object sender, EventArgs e)
         {
             if(isModerTB.Text != string.Empty && isModerTB.Text == "False" && roleTB.Text == "Reader")
             {
+                foreach(User user in _users)
+                {
+                    if(usersLB.Text == user.Username)
+                    {
+                        user.IsRedactor = true;
+                        isModerTB.Text = "True";
+                        MessageBox.Show("Пользователь успешно назначен модератором");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не выбран, не является читателем или уже является модератором");
+                return;
+            }
+        }
 
+
+        // Отзыв полномочий модератора 
+        private void revokeModPrivBTN_Click(object sender, EventArgs e)
+        {
+            if (isModerTB.Text != string.Empty && isModerTB.Text == "True" && roleTB.Text == "Reader")
+            {
+                foreach (User user in _users)
+                {
+                    if (usersLB.Text == user.Username)
+                    {
+                        user.IsRedactor = false;
+                        isModerTB.Text = "False";
+                        MessageBox.Show("Полномочия модератора успешно отозваны");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не выбран, не является читателем или уже не модератор");
+                return;
             }
         }
     }
