@@ -75,6 +75,12 @@
     <Compile Include="RoleOfUsers\AuthorForm.Designer.cs">
       <DependentUpon>AuthorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoleOfUsers\ModeratorPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleOfUsers\ModeratorPanel.Designer.cs">
+      <DependentUpon>ModeratorPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoleOfUsers\ReaderForm.cs">
       <SubType>Form</SubType>
     </Compile>

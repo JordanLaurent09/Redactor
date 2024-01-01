@@ -14,7 +14,7 @@ namespace Redactor
             StreamReader reader = new StreamReader("users.json");
             string usersData = reader.ReadToEnd();
             User[] users = JsonConvert.DeserializeObject<User[]>(usersData) ?? throw new Exception("Нет данных");
-            //string[] names = usersData.Split(' ');
+            
 
             reader.Close();
 
@@ -28,13 +28,7 @@ namespace Redactor
                 }
             }
 
-            //foreach(string item in names)
-            //{
-            //    if(item == userLogin)
-            //    {
-            //        currentUser = new User(item);
-            //    }
-            //}
+            
 
             if(currentUser == null)
             {
@@ -50,34 +44,28 @@ namespace Redactor
         {
             switch (currentUser.Role)
             {
-                case Role.Admin:
+                case Role.Admin:                   
                     AdminPanel adminPanel = new AdminPanel(currentUser);
                     adminPanel.Show();
                     break;
                 case Role.Reader:
-                    ReaderForm readerForm = new ReaderForm(currentUser);
-                    readerForm.Show();
+                    if (currentUser.IsRedactor == true)
+                    {
+                        ModeratorPanel modPanel = new ModeratorPanel();
+                        modPanel.Show();
+                    }
+                    else
+                    {
+                        ReaderForm readerForm = new ReaderForm(currentUser);
+                        readerForm.Show();
+                    }
                     break;
                 case Role.Author:
                     AuthorForm authorForm = new AuthorForm(currentUser);
                     authorForm.Show();
                     break;
             }
-            //if (currentUser.Username == "admin")
-            //{
-            //    RoleOfUsers.AdminPanel admin = new RoleOfUsers.AdminPanel(currentUser);
-            //    admin.Show();
-            //}
-            //else if(currentUser.Username == "reader")
-            //{
-            //    RoleOfUsers.ReaderForm reader = new RoleOfUsers.ReaderForm(currentUser);
-            //    reader.Show();
-            //}
-            //else
-            //{
-            //    RoleOfUsers.AuthorForm author = new RoleOfUsers.AuthorForm(currentUser);
-            //    author.Show();
-            //}
+            
         }
     }
 }
