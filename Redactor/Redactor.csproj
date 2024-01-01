@@ -111,6 +111,9 @@
     <EmbeddedResource Include="RoleOfUsers\AuthorForm.resx">
       <DependentUpon>AuthorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RoleOfUsers\ModeratorPanel.resx">
+      <DependentUpon>ModeratorPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoleOfUsers\ReaderForm.resx">
       <DependentUpon>ReaderForm.cs</DependentUpon>
     </EmbeddedResource>
