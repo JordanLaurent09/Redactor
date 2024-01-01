@@ -52,6 +52,10 @@ namespace Redactor.RoleOfUsers
             this.removeUserBTN = new System.Windows.Forms.Button();
             this.unblockUserBTN = new System.Windows.Forms.Button();
             this.saveChangesBTN = new System.Windows.Forms.Button();
+            this.isModerTB = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.grantModPrivBTN = new System.Windows.Forms.Button();
+            this.revokeModPrivBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usersLB
@@ -242,19 +246,58 @@ namespace Redactor.RoleOfUsers
             // 
             // saveChangesBTN
             // 
-            this.saveChangesBTN.Location = new System.Drawing.Point(634, 282);
+            this.saveChangesBTN.Location = new System.Drawing.Point(621, 352);
             this.saveChangesBTN.Name = "saveChangesBTN";
-            this.saveChangesBTN.Size = new System.Drawing.Size(75, 38);
+            this.saveChangesBTN.Size = new System.Drawing.Size(100, 38);
             this.saveChangesBTN.TabIndex = 22;
             this.saveChangesBTN.Text = "Сохранить изменения";
             this.saveChangesBTN.UseVisualStyleBackColor = true;
             this.saveChangesBTN.Click += new System.EventHandler(this.saveChangesBTN_Click);
+            // 
+            // isModerTB
+            // 
+            this.isModerTB.Location = new System.Drawing.Point(412, 299);
+            this.isModerTB.Name = "isModerTB";
+            this.isModerTB.Size = new System.Drawing.Size(100, 20);
+            this.isModerTB.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(415, 280);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(69, 13);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Модератор?";
+            // 
+            // grantModPrivBTN
+            // 
+            this.grantModPrivBTN.Location = new System.Drawing.Point(560, 280);
+            this.grantModPrivBTN.Name = "grantModPrivBTN";
+            this.grantModPrivBTN.Size = new System.Drawing.Size(99, 52);
+            this.grantModPrivBTN.TabIndex = 25;
+            this.grantModPrivBTN.Text = "Назначить модератором";
+            this.grantModPrivBTN.UseVisualStyleBackColor = true;
+            this.grantModPrivBTN.Click += new System.EventHandler(this.grantModPrivBTN_Click);
+            // 
+            // revokeModPrivBTN
+            // 
+            this.revokeModPrivBTN.Location = new System.Drawing.Point(675, 280);
+            this.revokeModPrivBTN.Name = "revokeModPrivBTN";
+            this.revokeModPrivBTN.Size = new System.Drawing.Size(100, 52);
+            this.revokeModPrivBTN.TabIndex = 26;
+            this.revokeModPrivBTN.Text = "Отозвать полномочия модератора";
+            this.revokeModPrivBTN.UseVisualStyleBackColor = true;
             // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.revokeModPrivBTN);
+            this.Controls.Add(this.grantModPrivBTN);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.isModerTB);
             this.Controls.Add(this.saveChangesBTN);
             this.Controls.Add(this.unblockUserBTN);
             this.Controls.Add(this.removeUserBTN);
@@ -310,5 +353,9 @@ namespace Redactor.RoleOfUsers
         private System.Windows.Forms.Button removeUserBTN;
         private System.Windows.Forms.Button unblockUserBTN;
         private System.Windows.Forms.Button saveChangesBTN;
+        private System.Windows.Forms.TextBox isModerTB;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button grantModPrivBTN;
+        private System.Windows.Forms.Button revokeModPrivBTN;
     }
 }

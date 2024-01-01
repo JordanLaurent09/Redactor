@@ -63,6 +63,7 @@ namespace Redactor.RoleOfUsers
                     regDateTB.Text = user.RegistrationDate.ToString();
                     roleTB.Text = user.Role.ToString();
                     isBlockedTB.Text = user.IsBlocked.ToString();
+                    isModerTB.Text = user.IsRedactor.ToString();
                 }
                 
             }
@@ -115,6 +116,8 @@ namespace Redactor.RoleOfUsers
             }
         }
 
+
+        // Удаление пользователя
         private void removeUserBTN_Click(object sender, EventArgs e)
         {
             if(usersLB.Text != string.Empty && usersLB.Text != "admin")
@@ -146,6 +149,14 @@ namespace Redactor.RoleOfUsers
                 using(JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
             {
                 serializer.Serialize(jsonWriter, _users);
+            }
+        }
+
+        private void grantModPrivBTN_Click(object sender, EventArgs e)
+        {
+            if(isModerTB.Text != string.Empty && isModerTB.Text == "False" && roleTB.Text == "Reader")
+            {
+
             }
         }
     }
