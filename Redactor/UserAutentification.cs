@@ -51,7 +51,7 @@ namespace Redactor
                 case Role.Reader:
                     if (currentUser.IsRedactor == true)
                     {
-                        ModeratorPanel modPanel = new ModeratorPanel();
+                        ModeratorPanel modPanel = new ModeratorPanel(currentUser);
                         modPanel.Show();
                     }
                     else
