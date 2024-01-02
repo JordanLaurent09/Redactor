@@ -115,6 +115,7 @@ namespace Redactor.RoleOfUsers
             this.editArticleBTN.TabIndex = 8;
             this.editArticleBTN.Text = "Сохранить изменения";
             this.editArticleBTN.UseVisualStyleBackColor = true;
+            this.editArticleBTN.Click += new System.EventHandler(this.editArticleBTN_Click);
             // 
             // ModeratorPanel
             // 
