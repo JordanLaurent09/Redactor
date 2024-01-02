@@ -41,6 +41,7 @@ namespace Redactor.RoleOfUsers
             AddHeaderBTN.Enabled = false;
             AddUnderheaderBTN.Enabled = false;
             AddNewArticleBTN.Enabled = false;
+            saveChangesBTN.Enabled = false;
         }
 
         // Добавить новую статью

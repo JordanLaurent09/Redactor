@@ -46,6 +46,7 @@ namespace Redactor.RoleOfUsers
             this.EditAnArticleBTN = new System.Windows.Forms.Button();
             this.WholeArticleTB = new System.Windows.Forms.TextBox();
             this.CreateArticleBTN = new System.Windows.Forms.Button();
+            this.saveChangesBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,9 +67,9 @@ namespace Redactor.RoleOfUsers
             // 
             // AddNewArticleBTN
             // 
-            this.AddNewArticleBTN.Location = new System.Drawing.Point(33, 162);
+            this.AddNewArticleBTN.Location = new System.Drawing.Point(29, 193);
             this.AddNewArticleBTN.Name = "AddNewArticleBTN";
-            this.AddNewArticleBTN.Size = new System.Drawing.Size(96, 38);
+            this.AddNewArticleBTN.Size = new System.Drawing.Size(122, 92);
             this.AddNewArticleBTN.TabIndex = 2;
             this.AddNewArticleBTN.Text = "Добавить статью";
             this.AddNewArticleBTN.UseVisualStyleBackColor = true;
@@ -171,9 +172,9 @@ namespace Redactor.RoleOfUsers
             // 
             // EditAnArticleBTN
             // 
-            this.EditAnArticleBTN.Location = new System.Drawing.Point(33, 229);
+            this.EditAnArticleBTN.Location = new System.Drawing.Point(29, 291);
             this.EditAnArticleBTN.Name = "EditAnArticleBTN";
-            this.EditAnArticleBTN.Size = new System.Drawing.Size(96, 70);
+            this.EditAnArticleBTN.Size = new System.Drawing.Size(122, 92);
             this.EditAnArticleBTN.TabIndex = 14;
             this.EditAnArticleBTN.Text = "Редактировать существующую статью";
             this.EditAnArticleBTN.UseVisualStyleBackColor = true;
@@ -189,19 +190,29 @@ namespace Redactor.RoleOfUsers
             // 
             // CreateArticleBTN
             // 
-            this.CreateArticleBTN.Location = new System.Drawing.Point(33, 96);
+            this.CreateArticleBTN.Location = new System.Drawing.Point(29, 95);
             this.CreateArticleBTN.Name = "CreateArticleBTN";
-            this.CreateArticleBTN.Size = new System.Drawing.Size(96, 35);
+            this.CreateArticleBTN.Size = new System.Drawing.Size(122, 92);
             this.CreateArticleBTN.TabIndex = 16;
             this.CreateArticleBTN.Text = "Создать статью";
             this.CreateArticleBTN.UseVisualStyleBackColor = true;
             this.CreateArticleBTN.Click += new System.EventHandler(this.CreateArticleBTN_Click);
+            // 
+            // saveChangesBTN
+            // 
+            this.saveChangesBTN.Location = new System.Drawing.Point(29, 389);
+            this.saveChangesBTN.Name = "saveChangesBTN";
+            this.saveChangesBTN.Size = new System.Drawing.Size(122, 92);
+            this.saveChangesBTN.TabIndex = 17;
+            this.saveChangesBTN.Text = "Сохранить изменения в отредактированной статье";
+            this.saveChangesBTN.UseVisualStyleBackColor = true;
             // 
             // AuthorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 499);
+            this.Controls.Add(this.saveChangesBTN);
             this.Controls.Add(this.CreateArticleBTN);
             this.Controls.Add(this.WholeArticleTB);
             this.Controls.Add(this.EditAnArticleBTN);
@@ -245,5 +256,6 @@ namespace Redactor.RoleOfUsers
         private System.Windows.Forms.Button EditAnArticleBTN;
         private System.Windows.Forms.TextBox WholeArticleTB;
         private System.Windows.Forms.Button CreateArticleBTN;
+        private System.Windows.Forms.Button saveChangesBTN;
     }
 }
