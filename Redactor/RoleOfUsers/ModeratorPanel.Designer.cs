@@ -47,6 +47,7 @@ namespace Redactor.RoleOfUsers
             this.authorsLB.Name = "authorsLB";
             this.authorsLB.Size = new System.Drawing.Size(78, 199);
             this.authorsLB.TabIndex = 0;
+            this.authorsLB.SelectedIndexChanged += new System.EventHandler(this.authorsLB_SelectedIndexChanged);
             // 
             // articlesLB
             // 
@@ -55,6 +56,7 @@ namespace Redactor.RoleOfUsers
             this.articlesLB.Name = "articlesLB";
             this.articlesLB.Size = new System.Drawing.Size(75, 199);
             this.articlesLB.TabIndex = 1;
+            this.articlesLB.SelectedIndexChanged += new System.EventHandler(this.articlesLB_SelectedIndexChanged);
             // 
             // HeadetTB
             // 
