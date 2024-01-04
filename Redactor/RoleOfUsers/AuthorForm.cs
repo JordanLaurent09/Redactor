@@ -59,12 +59,18 @@ namespace Redactor.RoleOfUsers
                 article.Add(line);
             }
 
+            // Шифрование статьи
+
+            List<string> encryptedArt = Cypher.EncryptArticles(article);
+
+            // Сохранение статьи в файл
+
             JsonSerializer serializer = new JsonSerializer();
 
             using(StreamWriter sw = new StreamWriter($"{articlePath}\\{ArticleNameTB.Text}.json"))
                 using(JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, article);
+                serializer.Serialize(writer, encryptedArt);
             }
 
             _users = GetUsers();
@@ -146,12 +152,16 @@ namespace Redactor.RoleOfUsers
 
             articleText = JsonConvert.DeserializeObject<List<string>>(article);
 
-            HeaderTB.Text = articleText[1];
-            UnderHeaderTB.Text = articleText[2];
+            // Дешифровка статьи
+
+            List<string> decryptedArticle = Cypher.EncryptArticles(articleText);
+
+            HeaderTB.Text = decryptedArticle[1];
+            UnderHeaderTB.Text = decryptedArticle[2];
             
             for(int i = 3; i < articleText.Count; i++)
             {
-                temp.Add(articleText[i]);
+                temp.Add(decryptedArticle[i]);
             }
 
             WholeArticleTB.Lines = temp.ToArray();
