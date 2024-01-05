@@ -27,7 +27,9 @@ namespace Redactor
                 _users = JsonConvert.DeserializeObject<List<User>>(users);
             }
 
-            foreach(var user in _users)
+            List<User> encryptUsers = Cypher.EncryptUsers(_users);
+
+            foreach (var user in encryptUsers)
             {
                 if (user.Username.Equals(newUser.Username))
                 {
@@ -41,9 +43,9 @@ namespace Redactor
                 }
             }
 
-            newUser.Id = _users.Count + 1;
+            newUser.Id = encryptUsers.Count + 1;
             newUser.RegistrationDate = DateTime.Now;
-            _users.Add(newUser);
+            encryptUsers.Add(newUser);
 
             // Создание папки для статей в случае, если текущий пользователь является автором
             if(newUser.Role == Role.Author)
@@ -52,7 +54,9 @@ namespace Redactor
                 Directory.CreateDirectory($"{pathToArticlesFolder}\\{newUser.Username}");
             }
 
-            SerializeUsersToJson(_users, _userDataPath);
+            List<User> finalEncrypt = Cypher.EncryptUsers(encryptUsers);
+
+            SerializeUsersToJson(finalEncrypt, _userDataPath);
         }
 
         public static void SerializeUsersToJson(List<User> users, string fileName)

@@ -20,7 +20,11 @@ namespace Redactor
 
             User currentUser = null;
 
-            foreach(User user in users)
+            List<User> listUsers = users.ToList();
+
+            List<User> decryptUsers = Cypher.DecryptUsers(listUsers);
+
+            foreach(User user in decryptUsers)
             {
                 if(user.Username == userLogin && user.Password == userPassword)
                 {
