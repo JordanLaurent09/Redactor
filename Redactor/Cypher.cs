@@ -34,7 +34,10 @@ namespace Redactor
                 encryptUser.RegistrationDate = regDate;
                 encryptUser.IsRedactor = isRedactor;
                 encryptUser.IsBlocked = isBlocked;
-                encryptUser.ArticleList = articles;
+                foreach (string article in articles) 
+                {
+                    encryptUser.ArticleList.Add(article);
+                }
 
                 encryptUsers.Add(encryptUser);
             }
@@ -68,7 +71,10 @@ namespace Redactor
                 decryptUser.RegistrationDate = regDate;
                 decryptUser.IsRedactor = isRedactor;
                 decryptUser.IsBlocked = isBlocked;
-                decryptUser.ArticleList = articles;
+                foreach (string article in articles)
+                {
+                    decryptUser.ArticleList.Add(article);
+                }
 
                 decryptUsers.Add(decryptUser);
             }
