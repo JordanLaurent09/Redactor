@@ -62,7 +62,7 @@ namespace Redactor.RoleOfUsers
 
             string article = File.ReadAllText(fullPathToFile);
 
-            List<string> text = JsonConvert.DeserializeObject<List<string>>(article);
+            List<string> text = Cypher.EncryptArticles(JsonConvert.DeserializeObject<List<string>>(article));
 
             List<string> temp = new List<string>();
 
