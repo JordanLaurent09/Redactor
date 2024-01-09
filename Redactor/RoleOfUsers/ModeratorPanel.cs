@@ -28,7 +28,7 @@ namespace Redactor.RoleOfUsers
         public void GetUsers()
         {
             string info = File.ReadAllText(_path);
-            _users = JsonConvert.DeserializeObject<List<User>>(info);
+            _users = Cypher.EncryptUsers(JsonConvert.DeserializeObject<List<User>>(info));
 
             foreach(User user in _users)
             {
@@ -77,7 +77,7 @@ namespace Redactor.RoleOfUsers
 
             string info = File.ReadAllText(articlePath);
 
-            articleElements = JsonConvert.DeserializeObject<List<string>>(info);
+            articleElements = Cypher.EncryptArticles(JsonConvert.DeserializeObject<List<string>>(info));
 
             HeadetTB.Text = articleElements[1];
             underHeaderTB.Text = articleElements[2];
@@ -110,12 +110,14 @@ namespace Redactor.RoleOfUsers
                 editedArticle.Add(line);
             }
 
+            List<string> encryptedArticle = Cypher.EncryptArticles(editedArticle);
+
             JsonSerializer serializer = new JsonSerializer();
 
             using (StreamWriter streamWriter = new StreamWriter(articlePath))
             using (JsonWriter writer = new JsonTextWriter(streamWriter))
             {
-                serializer.Serialize(writer, editedArticle);
+                serializer.Serialize(writer, encryptedArticle);
             }
             MessageBox.Show("Отредактированная статья успешно записана в файл");
         }
