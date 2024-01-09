@@ -206,6 +206,7 @@ namespace Redactor.RoleOfUsers
             this.saveChangesBTN.TabIndex = 17;
             this.saveChangesBTN.Text = "Сохранить изменения в отредактированной статье";
             this.saveChangesBTN.UseVisualStyleBackColor = true;
+            this.saveChangesBTN.Click += new System.EventHandler(this.saveChangesBTN_Click);
             // 
             // AuthorForm
             // 

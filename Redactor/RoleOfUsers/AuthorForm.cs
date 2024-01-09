@@ -170,6 +170,11 @@ namespace Redactor.RoleOfUsers
         // Очистка формы для написания новой статьи
         private void CreateArticleBTN_Click(object sender, EventArgs e)
         {
+            CleanForm();
+        }
+
+        private void CleanForm()
+        {
             ArticleNameTB.Clear();
             HeaderTB.Clear();
             UnderHeaderTB.Clear();
@@ -181,19 +186,26 @@ namespace Redactor.RoleOfUsers
             CreateArticleBTN.Enabled = false;
             AddParagraphBTN.Enabled = true;
             ArticleListLB.Enabled = false;
-            
         }
 
+
+        // Подготовка формы к редактированию выбранной статьи
         private void EditAnArticleBTN_Click(object sender, EventArgs e)
+        {
+            PrepareEdit();
+        }
+
+        private void PrepareEdit()
         {
             ArticleNameTB.Enabled = false;
             CreateArticleBTN.Enabled = false;
             EditAnArticleBTN.Enabled = false;
-            HeaderTB.Enabled = false;
-            UnderHeaderTB.Enabled = false;
-            AddHeaderBTN.Enabled = true;
-            AddUnderheaderBTN.Enabled = true;
-            AddParagraphBTN.Enabled = true;
+            HeaderTB.Enabled = true;
+            UnderHeaderTB.Enabled = true;
+            AddHeaderBTN.Enabled = false;
+            AddUnderheaderBTN.Enabled = false;
+            AddParagraphBTN.Enabled = false;
+            saveChangesBTN.Enabled = true;
         }
 
 
@@ -225,6 +237,47 @@ namespace Redactor.RoleOfUsers
             {
                 serializer.Serialize(writer, encryptUsers);
             }
+        }
+
+
+        // Сохранение отредактированной статьи
+        private void saveChangesBTN_Click(object sender, EventArgs e)
+        {
+            SaveEditedArticle();
+        }
+
+        private void SaveEditedArticle()
+        {
+            List<string> article = new List<string>();
+            string articlePath = $"{Directory.GetCurrentDirectory()}\\AuthorArticles\\{CurrentUser.Username}";
+
+            article.Add(ArticleNameTB.Text);
+            article.Add(HeaderTB.Text);
+            article.Add(UnderHeaderTB.Text);
+
+            foreach (string line in WholeArticleTB.Lines)
+            {
+                article.Add(line);
+            }
+
+            // Шифрование статьи
+
+            List<string> encryptedArt = Cypher.EncryptArticles(article);
+
+            // Сохранение статьи в файл
+
+            JsonSerializer serializer = new JsonSerializer();
+
+            using (StreamWriter sw = new StreamWriter($"{articlePath}\\{ArticleNameTB.Text}.json"))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, encryptedArt);
+            }
+
+            ArticleNameTB.Enabled = true;
+            CreateArticleBTN.Enabled = true;
+            EditAnArticleBTN.Enabled = true;
+            saveChangesBTN.Enabled = false;
         }
     }
 }
