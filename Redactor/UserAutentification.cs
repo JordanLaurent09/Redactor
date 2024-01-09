@@ -22,7 +22,7 @@ namespace Redactor
 
             List<User> listUsers = users.ToList();
 
-            List<User> decryptUsers = Cypher.DecryptUsers(listUsers);
+            List<User> decryptUsers = Cypher.EncryptUsers(listUsers);
 
             foreach(User user in decryptUsers)
             {

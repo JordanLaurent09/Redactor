@@ -206,7 +206,7 @@ namespace Redactor.RoleOfUsers
 
             string usersInfo = File.ReadAllText(_userDataPath);
 
-            users = JsonConvert.DeserializeObject<List<User>>(usersInfo);
+            users = Cypher.EncryptUsers(JsonConvert.DeserializeObject<List<User>>(usersInfo));
 
             return users;
         }
@@ -216,13 +216,14 @@ namespace Redactor.RoleOfUsers
 
         private void RewriteUsers(List<User> users)
         {
+            List<User> encryptUsers = Cypher.EncryptUsers(users);
             string fileName = $"{Directory.GetCurrentDirectory()}\\users.json";
             JsonSerializer serializer = new JsonSerializer();
 
             using (StreamWriter sw = new StreamWriter(fileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, users);
+                serializer.Serialize(writer, encryptUsers);
             }
         }
     }
