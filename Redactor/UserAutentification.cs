@@ -26,9 +26,14 @@ namespace Redactor
 
             foreach(User user in decryptUsers)
             {
-                if(user.Username == userLogin && user.Password == userPassword)
+                if(user.Username == userLogin && user.Password == userPassword && user.IsBlocked == false)
                 {
                     currentUser = user;
+                }
+                else if(user.Username == userLogin && user.Password == userPassword && user.IsBlocked == true)
+                {
+                    System.Windows.Forms.MessageBox.Show("Вы заблокированы! Доступ запрещен. До свидания!");
+                    return;
                 }
             }
 
