@@ -30,7 +30,8 @@ namespace Redactor.RoleOfUsers
         {
             string usersInfo = File.ReadAllText(_path);
 
-            _users = JsonConvert.DeserializeObject<List<User>>(usersInfo);
+            // Расшифровка списка пользователей  и его запись во временный список администратора
+            _users = Cypher.EncryptUsers(JsonConvert.DeserializeObject<List<User>>(usersInfo));
             
             for(int i = 0; i < _users.Count; i++)
             {
@@ -143,12 +144,13 @@ namespace Redactor.RoleOfUsers
         // Запись обновленного списка пользователей в файл
         private void saveChangesBTN_Click(object sender, EventArgs e)
         {
+            List<User> encryptedUsers = Cypher.EncryptUsers(_users);
             JsonSerializer serializer = new JsonSerializer();
 
             using(StreamWriter streamWriter = new StreamWriter(_path))
                 using(JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
             {
-                serializer.Serialize(jsonWriter, _users);
+                serializer.Serialize(jsonWriter, encryptedUsers);
             }
         }
 
