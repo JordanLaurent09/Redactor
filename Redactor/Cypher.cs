@@ -16,7 +16,7 @@ namespace Redactor
             // Перебор в цикле объектов Users
             foreach(User user in users)
             {
-                int id = user.Id ^ 5;
+                int id = user.Id;
                 string username = EncryptLine(user.Username);
                 string firstName = EncryptLine(user.FirstName);
                 string secondName = EncryptLine(user.SecondName);
