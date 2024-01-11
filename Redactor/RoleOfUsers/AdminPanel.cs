@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using Newtonsoft.Json;
-using System.Text;
 using System.IO;
 using System.Windows.Forms;
 
@@ -198,6 +194,13 @@ namespace Redactor.RoleOfUsers
                 MessageBox.Show("Пользователь не выбран, не является читателем или уже не модератор");
                 return;
             }
+        }
+
+
+        // Завершение работы приложения при закрытии формы 
+        private void AdminPanel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 using System.Windows.Forms;
 using System.IO;
@@ -27,9 +22,6 @@ namespace Redactor.RoleOfUsers
 
             if(articles.Count > 0)
             {
-                //HeaderTB.Enabled = false;
-                //UnderHeaderTB.Enabled = false;
-                //ParagraphTB.Enabled = false;
                 AddParagraphBTN.Enabled = false;
             }
 
@@ -278,6 +270,12 @@ namespace Redactor.RoleOfUsers
             CreateArticleBTN.Enabled = true;
             EditAnArticleBTN.Enabled = true;
             saveChangesBTN.Enabled = false;
+        }
+
+        // Закрытие приложения после закрытия формы
+        private void AuthorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

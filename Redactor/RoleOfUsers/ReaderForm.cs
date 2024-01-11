@@ -38,7 +38,8 @@ namespace Redactor.RoleOfUsers
 
         // Отображение статей при выборе автора
         private void authorsLB_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        { 
+            articlesLB.Items.Clear();
             string articlesPath = $"{_path}\\{authorsLB.Text}";
 
             DirectoryInfo dirInfo = new DirectoryInfo(articlesPath);
@@ -75,6 +76,12 @@ namespace Redactor.RoleOfUsers
             }
 
             articleTB.Lines = temp.ToArray();
+        }
+
+        // Завершение работы с программой при закрытии формы 
+        private void ReaderForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

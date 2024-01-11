@@ -23,7 +23,10 @@ namespace Redactor
         {
             UserAutentification userAutentification = new UserAutentification();
             userAutentification.Autentificate(userLoginTB.Text, userPasswordTB.Text);
-            //Hide();
+            if (userAutentification.isAutentificate == true)
+            {
+                Hide();
+            }
         }
 
         // Регистрация пользователя

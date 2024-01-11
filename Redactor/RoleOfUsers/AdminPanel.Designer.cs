@@ -324,6 +324,7 @@ namespace Redactor.RoleOfUsers
             this.Controls.Add(this.usersLB);
             this.Name = "AdminPanel";
             this.Text = "AdminPanel";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminPanel_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

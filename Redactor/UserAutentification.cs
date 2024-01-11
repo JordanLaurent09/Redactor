@@ -9,6 +9,7 @@ namespace Redactor
 {
     class UserAutentification
     {
+        public bool isAutentificate = false;
         public void Autentificate(string userLogin, string userPassword)
         {
             StreamReader reader = new StreamReader("users.json");
@@ -29,6 +30,7 @@ namespace Redactor
                 if(user.Username == userLogin && user.Password == userPassword && user.IsBlocked == false)
                 {
                     currentUser = user;
+                    isAutentificate = true;
                 }
                 else if(user.Username == userLogin && user.Password == userPassword && user.IsBlocked == true)
                 {

@@ -133,6 +133,7 @@ namespace Redactor.RoleOfUsers
             this.Controls.Add(this.authorsLB);
             this.Name = "ModeratorPanel";
             this.Text = "ModeratorPanel";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ModeratorPanel_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

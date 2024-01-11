@@ -233,6 +233,7 @@ namespace Redactor.RoleOfUsers
             this.Controls.Add(this.label1);
             this.Name = "AuthorForm";
             this.Text = "AuthorForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AuthorForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

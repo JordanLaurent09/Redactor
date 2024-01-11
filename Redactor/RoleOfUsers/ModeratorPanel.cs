@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using Newtonsoft.Json;
 using System.IO;
 using System.Windows.Forms;
@@ -120,6 +116,13 @@ namespace Redactor.RoleOfUsers
                 serializer.Serialize(writer, encryptedArticle);
             }
             MessageBox.Show("Отредактированная статья успешно записана в файл");
+        }
+
+
+        // Завершение работы при закрытии формы
+        private void ModeratorPanel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
